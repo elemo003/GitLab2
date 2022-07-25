@@ -33,3 +33,11 @@ tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
+task reports (dependsOn: ['javadoc', 'test']) {
+    description 'Ensures javadoc and test are executed' 
+}
+
+task deployReportd(type: Copy) {
+    
+    dependsOn 'reports'
+}
